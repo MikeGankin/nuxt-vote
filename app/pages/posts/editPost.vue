@@ -1,11 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
+<template>Править пост</template>
 
-<template>
-
-</template>
-
-<style scoped>
-
-</style>
+<style scoped></style>

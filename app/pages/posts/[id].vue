@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>Посты</template>
+<template>Пост</template>
 
 <style scoped></style>
