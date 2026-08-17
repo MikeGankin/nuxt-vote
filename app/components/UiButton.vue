@@ -1,16 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-	type?: string
-}>()
+	type?: string;
+}>();
 </script>
 
 <template>
-	<button
-			class="main-button"
-			:class="type === 'primary' ? 'primary' : 'ghost'"
-			type="button"
-	>
-		<slot></slot>
+	<button class="main-button" :class="type === 'primary' ? 'primary' : 'ghost'" type="button">
+		<slot />
 	</button>
 </template>
 
@@ -22,7 +18,7 @@ defineProps<{
 	border: none;
 	font-size: 16px;
 	font-weight: 700;
-	border-radius: 8px;
+	border-radius: 30px;
 	cursor: pointer;
 }
 
