@@ -1,33 +1,56 @@
 <script setup lang="ts">
-defineProps<{
-	type?: string;
-}>();
+withDefaults(
+	defineProps<{
+		variant?: "primary" | "ghost";
+		size?: "small" | "medium";
+		fullWidth?: boolean;
+		nativeType?: "button" | "submit" | "reset";
+	}>(),
+	{
+		variant: "primary",
+		size: "medium",
+		fullWidth: false,
+		nativeType: "button",
+	},
+);
 </script>
 
 <template>
-	<button class="main-button" :class="type === 'primary' ? 'primary' : 'ghost'" type="button">
+	<button
+		class="main-button"
+		:class="[
+			`main-button--${variant}`,
+			`main-button--${size}`,
+			{ 'main-button--full-width': fullWidth },
+		]"
+		:type="nativeType"
+	>
 		<slot />
 	</button>
 </template>
 
 <style scoped>
 .main-button {
-	padding: 16px;
-	background: transparent;
 	width: fit-content;
 	border: none;
-	font-size: 16px;
-	font-weight: 700;
+	background: transparent;
+	font-size: inherit;
+	font-weight: 500;
 	border-radius: 30px;
 	cursor: pointer;
+	padding: 16px 32px;
 }
 
-.primary {
+.main-button--full-width {
+	width: 100%;
+}
+
+.main-button--primary {
 	background: var(--black);
 	color: var(--white);
 }
 
-.ghost {
+.main-button--ghost {
 	border: 1px solid var(--black);
 	color: var(--black);
 }
